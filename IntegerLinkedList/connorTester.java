@@ -3,8 +3,8 @@ public class connorTester{
   public static void main (String[] args){
 
     //Creating test list
-    Node headNode = new Node(69);
-    integerLinkedList listy = new integerLinkedList(headNode);
+    Node linkedListBeginning= new Node(123);
+    integerLinkedList listy = new integerLinkedList(linkedListBeginning);
 
 
     for (int i =0; i<10; i++){
@@ -14,8 +14,8 @@ public class connorTester{
     }
 
     //Creating test Stack
-    Node topStack = new Node(123);
-    integerLinkedList linkedListForStack = new integerLinkedList(topStack);
+    Node beginningofStack= new Node(123);
+    integerLinkedList linkedListForStack = new integerLinkedList(beginningofStack);
     for (int i =10; i<20; i++){
       Node nodeForStack = new Node(i);
       linkedListForStack.insertFront(nodeForStack);
@@ -24,6 +24,17 @@ public class connorTester{
 
     linkedListStack connorStack = new linkedListStack(linkedListForStack);
 
+
+    //Creating test Queue
+    Node firstInLine = new Node(101);
+    integerLinkedList linkedListForQueue = new integerLinkedList(firstInLine);
+    for (int i =10; i<20; i++){
+      Node nodeForQueue = new Node(i);
+      linkedListForQueue.insertFront(nodeForQueue);
+
+    }
+
+    linkedListIntegerQueue connorQueue = new linkedListIntegerQueue(linkedListForQueue);
 
 
     //Testing some Linked List functionality
@@ -127,6 +138,36 @@ public class connorTester{
     connorStack.toString(connorStack.getTop());
     connorStack.popAll();
     connorStack.toString(connorStack.getTop());
+    System.out.println("--------------------");
+    System.out.println("--------------------");
+
+
+
+    //Test Queue
+    System.out.println("");
+    System.out.println("Testing Queue functionality");
+    System.out.println("--------------------");
+    System.out.println("--------------------");
+
+    //Test enqueue
+    System.out.println("Testing enqueue");
+    connorQueue.toString(connorQueue.getFront());
+    System.out.println("The size is: "+connorQueue.sizeOfQueue());
+    Node newPersonInLine = new Node(47);
+    connorQueue.enqueue(newPersonInLine);
+    System.out.println("The queue has enqueued the value of: "+ newPersonInLine.getData());
+    System.out.println("The size is: "+connorQueue.sizeOfQueue());
+    connorQueue.toString(connorQueue.getFront());
+
+    System.out.println("--------------------");
+    System.out.println("");
+
+    System.out.println("Testing dequeue");
+    connorQueue.toString(connorQueue.getFront());
+    System.out.println("The size is: "+connorQueue.sizeOfQueue());
+    System.out.println("The queue has dequeued: "+ connorQueue.dequeue());
+    System.out.println("The size is: "+connorQueue.sizeOfQueue());
+    connorQueue.toString(connorQueue.getFront());
     System.out.println("--------------------");
     System.out.println("--------------------");
   }

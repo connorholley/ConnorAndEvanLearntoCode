@@ -18,7 +18,7 @@ public class integerLinkedList{
   }
 
   public  Node getHead(){
-    
+
     return this.head;
   }
 
@@ -75,6 +75,7 @@ public class integerLinkedList{
   public  void removeBack(){
     if (tail!=null){
       tail = tail.getPrev();
+      tail.setNext(null);
       this.count-=1;
 
     }
