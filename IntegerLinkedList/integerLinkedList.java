@@ -2,6 +2,11 @@ public class integerLinkedList{
   Node head;
   Node tail;
   int count;
+  public integerLinkedList(){
+    this.head = null;
+    this.tail = null;
+    count=0;
+  }
   public integerLinkedList(Node headNode){
     this.head = headNode;
     this.tail = headNode;
@@ -13,6 +18,7 @@ public class integerLinkedList{
   }
 
   public  Node getHead(){
+    
     return this.head;
   }
 
@@ -21,10 +27,17 @@ public class integerLinkedList{
   }
 
   public  void insertFront(Node newNode){
-    head.setPrev(newNode);
-    newNode.setNext(head);
-    head = newNode;
-    this.count+=1;
+    if (head!=null){
+      head.setPrev(newNode);
+      newNode.setNext(head);
+      head = newNode;
+      this.count+=1;
+
+    }else{
+      head = newNode;
+    }
+
+
 
   }
   public  void insertBack(Node newNode){
@@ -50,14 +63,22 @@ public class integerLinkedList{
   }
 
   public  void removeFront(){
-    head = head.getNext();
-    head.setPrev(null);
-    this.count-=1;
+    if (head!=null){
+      head = head.getNext();
+      head.setPrev(null);
+      this.count-=1;
+
+    }
+
   }
 
   public  void removeBack(){
-    tail = tail.getPrev();
-    this.count-=1;
+    if (tail!=null){
+      tail = tail.getPrev();
+      this.count-=1;
+
+    }
+
   }
 
   public  void removeAtPosition(Node tmphead, int position,int counter){
@@ -69,7 +90,7 @@ public class integerLinkedList{
       }else{
         tmphead.getPrev().setNext(tmphead.getNext());
         tmphead.getNext().setPrev(tmphead.getPrev());
-        
+
         this.count-=1;
       }
     }else{
